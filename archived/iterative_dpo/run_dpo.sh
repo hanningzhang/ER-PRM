@@ -1,0 +1,23 @@
+accelerate launch \
+    --config_file ./configs/zero2.yaml \
+    run_dpo.py \
+    --run_name $1 \
+    --output_dir $2 \
+    --model_name_or_path $1 \
+    --ref_model $7 \
+    --current_iteration $4 \
+    --total_iteration $5 \
+    --random_seed $6 \
+    --learning_rate 2e-7 \
+    --per_device_train_batch_size 2 \
+    --per_device_eval_batch_size 1 \
+    --gradient_accumulation_steps 1 \
+    --eval_steps 5000000 \
+    --save_steps 20000 \
+    --num_train_epochs 1 \
+    --max_steps 12000 \
+    --logging_steps 1 \
+    --choose_type max_min \
+    --train_dir $3 \
+    --loss_type sigmoid \
+    --lr_scheduler_type cosine \

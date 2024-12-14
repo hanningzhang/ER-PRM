@@ -1,0 +1,12 @@
+python rso_generate_instruct.py  \
+    --model_name_or_path $1 \
+    --current_iter $2 \
+    --dataset meta-math/MetaMathQA \
+    --batch_size 8192 \
+    --batch_size_per_iter 10000 \
+    --tensor_parallel_size 1 \
+    --num_gpus $3 \
+    --output_dir $4 \
+    --sanity_check $5 \
+    --local_rank $6 \
+    --random_seed $7 \
